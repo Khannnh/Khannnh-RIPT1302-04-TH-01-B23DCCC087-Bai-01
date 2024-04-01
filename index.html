@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng Hồ Đếm giờ</title>
+    <style>
+        #clock {
+    font-size: 5em; /*cho phần tử đó bằng 5 lần kích thước chữ mặc định của phần tử cha của nó*/
+    background-color: #f0a055;
+    color: #fff;
+    padding:10px;
+    border-radius: 20px;
+}
+h2{
+    text-align:center;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    color:rgb(252, 156, 11)
+
+}
+table{
+    margin:auto;
+    max-width:fit-content;
+    display:block;
+    margin-top:50px;
+}
+    </style>
+</head>
+<body>
+    <table>
+        <tr><br><br><br><br><br><br><h2>Thời gian bây giờ là:</h2></tr>
+        <tr>
+            <td id="clock">
+                <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function updateClock() {
+    const now = new Date();//lấy thời gian thực hiện tại
+    const hours = String(now.getHours()).padStart(2, '0');//hiển thị thời gian dạng 2 chữ số,nếu <10 thì tự động thêm số 0 đằng trước
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+}
+
+setInterval(updateClock, 1000);//gọi lại hàm,thao tác với mỗi 1000 mili giây=1s
+    </script>
+</body>
+</html>
